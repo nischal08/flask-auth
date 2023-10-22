@@ -2,11 +2,16 @@
 {% block content %}
 
 <div class="box">
+    {% if logged_in %}
+	<h1>Flask Authenticated</h1>
+    {% endif %}
+        {% if not logged_in %}
 	<h1>Flask Authentication</h1>
-
+    {% endif %}
+{% if not logged_in %}
   <a href="{{ url_for('login') }}" class="btn btn-primary btn-block btn-large">Login</a>
   <a href="{{ url_for('register') }}" class="btn btn-secondary btn-block btn-large">Register</a>
-
+  {% endif %}
 </div>
 
 {% endblock %}
